@@ -47,9 +47,9 @@ if(isset($_POST['pilihsemester'])){
                                     </div>
                                     <div class="modal-body">
                                         <div>
-                                            <label for="">Nama Lengkap :</label>
+                                            <label for="">Nama Lengkap : jerru</label>
                                             <input type="text" class="form-control" id="txtNama">
-                                            
+
                                         </div>
                                     </div>
                                     <div class="modal-footer">
