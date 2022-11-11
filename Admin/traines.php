@@ -1,12 +1,23 @@
 <?php
 include '../koneksi.php';
 include 'session.php';
+if(isset($_POST['insert'])){
+    $insert_nama = $_POST['nama_traines'];
+    $insert_username = $_POST['Username_traines'];
+    $insert_sandi = $_POST['Password_traines'];
+    $masukan_data = mysqli_query($conn,"INSERT INTO `traines`(`Nama`, `username`, `password`,`id_semester`) VALUES ('$insert_nama','$insert_username','$insert_sandi','$smt')");
+    if($masukan_data){
+        echo "<script type='text/javascript'>
+        alert('Data Berhasil Di Tambahkan!');
+        </script>";
+    }
+}
 if(isset($_POST['pilihsemester'])){
     $semtr = $_POST['pilihsemester'];
-    $tampilkan_data_traines = mysqli_query($conn,"SELECT * FROM `traines`where `id_semester`='$semtr'");
+    $tampilkan_data_traines = mysqli_query($conn,"SELECT * FROM `traines`where `id_semester`='$semtr'  ORDER BY `traines`.`date` DESC");
 } else {
 
-    $tampilkan_data_traines = mysqli_query($conn,"SELECT * FROM `traines` where `id_semester`='$smt'");
+    $tampilkan_data_traines = mysqli_query($conn,"SELECT * FROM `traines` where `id_semester`='$smt'  ORDER BY `traines`.`date` DESC");
 }
 ?>
 <!DOCTYPE html>
@@ -32,21 +43,49 @@ if(isset($_POST['pilihsemester'])){
                             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                             <li class="breadcrumb-item active">List Traines</li>
                         </ol>
-                        <!-- <div class="card mb-4">
-                            <div class="card-body">
-                                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                                .
-                            </div>
-                        </div> -->
+                     
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                DataTable Traines
+                                DataTable Traines 
+                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#traines">
+                                Tambah Traines
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="traines" tabindex="-1" aria-labelledby="trainesLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="trainesLabel">Input Data Traines</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form action="" method="post">
+                                    <div class="modal-body">
+                                        <div>
+                                            <label for="nama">Nama :</label>
+                                            <input type="text" name="nama_traines" class="form-control">
+                                        </div>
+                                        <div>
+                                            <label for="nama" class="mt-2">Username :</label>
+                                            <input type="text" name="Username_traines" class="form-control">
+                                        </div>
+                                        <div>
+                                            <label for="nama" class="mt-2">Password :</label>
+                                            <input type="text" name="Password_traines" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                                        <button type="submit" name="insert" class="btn btn-primary">Simpan</button>
+                                    </div>
+                                    </form>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
                             <div class="card-body">
                             <form action="" method="Post" class="form-inline" id="form_id">
-                                <Select class="ml-4 bg-primary text-light" name="pilihsemester"  onChange="document.getElementById('form_id').submit();">
+                                <Select class="ml-4 " name="pilihsemester"  onChange="document.getElementById('form_id').submit();">
                                     <option value="">Silahkan Pilih Semester</option>
                                     <?php
                                     $ambil_semester_ = mysqli_query($conn,"SELECT * FROM `semester`");

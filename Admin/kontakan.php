@@ -1,6 +1,15 @@
 <?php
 include '../koneksi.php';
 include 'session.php';
+if(isset($_POST['hapus'])){
+    $hapus = $_POST['hapus'];
+    $insert_datahapus = mysqli_query($conn,"DELETE FROM `data_kontakan` WHERE `id_kontakan`='$hapus'") or die("gagal". mysqli_error());
+    if($insert_datahapus){
+        echo "<script type='text/javascript'>
+        alert('Data Berhasil Di Hapus!');
+        </script>";
+    }
+}
 if(isset($_POST['pilihsemester'])){
     $semtr = $_POST['pilihsemester'];
     $tampilkan_data_kontakan = mysqli_query($conn,"SELECT * FROM `data_kontakan` where `id_semester`='$semtr'");
@@ -46,7 +55,7 @@ if(isset($_POST['pilihsemester'])){
                             </div>
                             <div class="card-body">
                             <form action="" method="Post" class="form-inline" id="form_id">
-                                <Select class="ml-4 bg-primary text-light" name="pilihsemester"  onChange="document.getElementById('form_id').submit();">
+                                <Select class="ml-4 " name="pilihsemester"  onChange="document.getElementById('form_id').submit();">
                                     <option value="">Silahkan Pilih Semester</option>
                                     <?php
                                     $ambil_semester_ = mysqli_query($conn,"SELECT * FROM `semester`");
@@ -69,6 +78,7 @@ if(isset($_POST['pilihsemester'])){
                                             <th>Tanggal</th>
                                             <th>Keterangan</th>
                                             <th>Traines</th>
+                                            <th>Opsi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -94,6 +104,12 @@ if(isset($_POST['pilihsemester'])){
                                         <td><?= $row['date']; ?></td>
                                         <td><?= $row['keterangan']; ?></td>
                                         <td><?= nama_traines($row['traines']); ?></td>
+                                        <td>
+                                        <form action="" method="POST">
+                                            <button type="submit" name="hapus" value="<?= $row['id_kontakan']; ?>" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')">Hapus</button>
+                                        </form>
+
+                                    </td>
                                         </tr>
                                         <?php $i++; ?>
                                         <?php endforeach; ?>

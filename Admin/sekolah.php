@@ -117,7 +117,7 @@ if(isset($_POST['Kec'])){
                             </div>
                             <div class="card-body">
                             <form action="" method="Post" class="form-inline" id="form_id">
-                                <Select class="ml-4 bg-dark text-light" name="wilaya"  onChange="document.getElementById('form_id').submit();">
+                                <Select class="ml-4 " name="wilaya"  onChange="document.getElementById('form_id').submit();">
                                     <option value="">Silahkan Pilih Wilaya</option>
                                     <?php
                                     $ambil_wilaya = mysqli_query($conn,"SELECT * FROM `wilaya`");
@@ -127,7 +127,7 @@ if(isset($_POST['Kec'])){
                                 </Select> 
                                 <?php
                                 if(isset($_POST['wilaya'])){ ?>
-                                <Select class="ml-4 bg-dark text-light" name="Kec"  onChange="document.getElementById('form_id').submit();">
+                                <Select class="ml-4 " name="Kec"  onChange="document.getElementById('form_id').submit();">
                                     <option value="">Pilih Kecamatan</option>
                                 <?php
                                 $ambil_kecamatan = mysqli_query($conn,"SELECT * FROM `kecamatan` where `id_w`='".$_POST['wilaya']."'");
