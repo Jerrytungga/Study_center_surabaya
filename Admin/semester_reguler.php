@@ -114,7 +114,8 @@ $Reg_ = mysqli_query($conn, "SELECT * FROM `reguler`");
                                 <tr>
                                     <td><?= $row1['keterangan']?></td>
                                     <td><?= $row1['status']?></td>
-                                    <td><form action="" method="POST">
+                                    <td>
+                                        <form action="" method="POST">
                                             <input type="hidden" name="id_r" value="<?= $row1['id_r']; ?>">
                                             <?php
                                             if($row1['status'] == 'Aktif'){ ?>
@@ -124,7 +125,8 @@ $Reg_ = mysqli_query($conn, "SELECT * FROM `reguler`");
                                           <?php }
                                             ?>
                                         
-                                        </form></td>
+                                        </form>
+                                    </td>
                                 </tr>
                                 </tbody>
                                

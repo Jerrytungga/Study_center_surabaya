@@ -14,6 +14,9 @@ if (!isset($_SESSION['id'])) {
   $ambil_semester = mysqli_query($conn,"SELECT * FROM `semester` WHERE keterangan='Aktif'");
   $semester_aktif = mysqli_fetch_array($ambil_semester);
   $smt =$semester_aktif['id_semester'];
+  $ambil_reguler = mysqli_query($conn,"SELECT * FROM `reguler` WHERE status='Aktif'");
+  $reguler_aktif = mysqli_fetch_array($ambil_reguler);
+  $r =$reguler_aktif['id_r'];
 }
 
 ?>

@@ -11,8 +11,7 @@ $tlpn = $_POST['tlpn'];
 $agama = $_POST['agama'];
 $tanggal = $_POST['tanggal'];
 $traines = $_POST['traines'];
-$reg = $_POST['reguler'];
-$insert_kontakan = mysqli_query($conn,"INSERT INTO `data_kontakan`( `nama`, `gender`, `alamat_rumah`, `nama_sekolah`, `kelas`, `no_hp`, `agama`, `date`, `keterangan`, `traines`, `id_semester`) VALUES ('$nm','$gdr','$alamat','$sklh','$kelas','$tlpn','$agama','$tanggal','$reg','$traines','$smt')");
+$insert_kontakan = mysqli_query($conn,"INSERT INTO `data_kontakan`( `nama`, `gender`, `alamat_rumah`, `nama_sekolah`, `kelas`, `no_hp`, `agama`, `date`, `keterangan`, `traines`, `id_semester`) VALUES ('$nm','$gdr','$alamat','$sklh','$kelas','$tlpn','$agama','$tanggal','$r','$traines','$smt')");
 if($insert_kontakan){
     echo "<script type='text/javascript'>
     alert('Data Berhasil Di Simpan!');
@@ -24,6 +23,16 @@ if($insert_kontakan){
 }
 }
 
+if(isset($_POST['hapus'])){
+    $hapus = $_POST['hapus'];
+    $insert_datahapus = mysqli_query($conn,"DELETE FROM `data_kontakan` WHERE `id_kontakan`='$hapus'") or die("gagal". mysqli_error());
+    if($insert_datahapus){
+        echo "<script type='text/javascript'>
+        alert('Data Berhasil Di Hapus!');
+        </script>";
+    }
+}
+
 
 if(isset($_POST['pilihsemester'])){
     $semtr = $_POST['pilihsemester'];
@@ -32,8 +41,6 @@ if(isset($_POST['pilihsemester'])){
     $tampilkan_data_kontakan = mysqli_query($conn,"SELECT * FROM `data_kontakan` where `id_semester`='$smt' and `traines`='$idtraines' ORDER BY id_kontakan DESC");
 }
 error_reporting(E_ALL ^ E_NOTICE);
-$Reguler = mysqli_query($conn,"SELECT * FROM `reguler` where `status`='Aktif'");
-$id_reguler = mysqli_fetch_array($Reguler);
 
 ?>
 <!DOCTYPE html>
@@ -85,7 +92,6 @@ $id_reguler = mysqli_fetch_array($Reguler);
                                         <div>
                                             <label for="">Nama Kontakan :</label>
                                             <input type="hidden" name="traines" value="<?= $idtraines; ?>">
-                                            <input type="hidden" name="reguler" value="<?= $id_reguler['keterangan']; ?>">
                                             <input type="text" require class="form-control" name="nama_kontakan">
                                         </div>
                                         <p></p>
@@ -188,12 +194,25 @@ $id_reguler = mysqli_fetch_array($Reguler);
                                             <th>Agama</th>
                                             <th>Tanggal</th>
                                             <th>Keterangan</th>
-                                            <!-- <th>Jumlah Perawatan</th> -->
+                                            <?php
+                                                $akses = mysqli_fetch_array(mysqli_query($conn,"SELECT akses_hapus FROM `hak_akses` where id = '1'"));
+                                                 $akses['akses_hapus'];
+                                                 if($akses['akses_hapus'] == '1') { ?>
+                                          <th>Opsi</th>
+                                          
+                                                <?php }
+                                                ?>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
                                 $i = 1;
+                                function reguler($reguler)
+                                {
+                                    global $conn;
+                                    $sqly = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM reguler WHERE id_r='$reguler'"));
+                                    return $sqly['keterangan'];
+                                }
                                 foreach ($tampilkan_data_kontakan as $row) :
                                     ?>
                                         <tr>
@@ -206,7 +225,19 @@ $id_reguler = mysqli_fetch_array($Reguler);
                                             <td><?= $row['no_hp']; ?></td>
                                             <td><?= $row['agama']; ?></td>
                                             <td><?= $row['date']; ?></td>
-                                            <td><?= $row['keterangan']; ?></td>
+                                            <td><?= reguler($row['keterangan']); ?></td>
+                                            <td>
+                                                <?php
+                                                $akses = mysqli_fetch_array(mysqli_query($conn,"SELECT akses_hapus FROM `hak_akses` where id = '1'"));
+                                                 $akses['akses_hapus'];
+                                                 if($akses['akses_hapus'] == '1') { ?>
+                                            <form action="" method="POST">
+                                            <button type="submit" name="hapus" value="<?= $row['id_kontakan']; ?>" class="btn btn-danger" onclick="return confirm('Yakin Hapus?')">Hapus</button>
+                                            </form>
+                                                <?php }
+                                                ?>
+                                          
+                                            </td>
                                             <!-- <td>
                                                 <?php
                                                 $tampilkan_count = mysqli_query($conn,"SELECT COUNT(Nama_kontakan) as Total FROM `followup_kontakan` where `id_semester`='$smt' and `traines`='$idtraines' and `Nama_kontakan`='".$row['id_kontakan']."'");

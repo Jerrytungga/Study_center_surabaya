@@ -1,6 +1,18 @@
 <?php
 include '../koneksi.php';
 include 'session.php';
+if(isset($_POST['simpan_perubahan'])){
+    $edit_nama = $_POST['name'];
+    $edit_username = $_POST['username'];
+    $edit_sandi = $_POST['sandi'];
+    $id = $_POST['id1'];
+    $perubahan_data = mysqli_query($conn,"UPDATE `traines` SET `Nama`='$edit_nama',`username`='$edit_username',`password`='$edit_sandi',`id_semester`='$smt' WHERE `id_traines`='$id'");
+    if($perubahan_data){
+        echo "<script type='text/javascript'>
+        alert('Data Berhasil Di Edit !');
+        </script>";
+    }
+}
 if(isset($_POST['insert'])){
     $insert_nama = $_POST['nama_traines'];
     $insert_username = $_POST['Username_traines'];
@@ -101,6 +113,7 @@ if(isset($_POST['pilihsemester'])){
                                             <th>Nama</th>
                                             <th>username</th>
                                             <th>password</th>
+                                            <th>opsi</th>
                                            
                                         </tr>
                                     </thead>
@@ -114,6 +127,43 @@ if(isset($_POST['pilihsemester'])){
                                         <td><?= $row['Nama']; ?></td>
                                         <td><?= $row['username']; ?></td>
                                         <td><?= $row['password']; ?></td>
+                                        <td>
+                                        <button id="edit" type="button" class="btn btn-warning" data-id_traines="<?= $row['id_traines']; ?>" data-nama_traines="<?= $row['Nama']; ?>" data-username="<?= $row['username']; ?>" data-sandi="<?= $row['password']; ?>" data-bs-toggle="modal" data-bs-target="#edit_traines">
+                                        Edit
+                                        </button>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="edit_traines" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Edit Traines</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form action="" method="post">
+                                            <div class="modal-body" id="modal-edit">
+                                                <div>
+                                                    <label for="">Nama :</label>
+                                                    <input type="text" class="form-control" id="nama_traines" name="name">
+                                                    <input type="hidden" class="form-control" id="id_traines" name="id1">
+                                                </div>
+                                                <div>
+                                                    <label class="mt-2" for="">Username :</label>
+                                                    <input type="text" class="form-control" id="username" name="username">
+                                                </div>
+                                                <div>
+                                                    <label class="mt-2" for="">Password :</label>
+                                                    <input type="text" class="form-control" id="sandi" name="sandi">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" name="simpan_perubahan" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                            </form>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        </td>
                                        
                                         </tr>
                                         <?php $i++; ?>
@@ -142,5 +192,19 @@ if(isset($_POST['pilihsemester'])){
         <script src="../js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="../js/datatables-simple-demo.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+        <script>
+              $(document).on("click", "#edit", function() {
+            var nama_traines = $(this).data('nama_traines');
+            var sandi = $(this).data('sandi');
+            var username = $(this).data('username');
+            var id_traines = $(this).data('id_traines');
+            $("#modal-edit #id_traines").val(id_traines);
+            $("#modal-edit #username").val(username);
+            $("#modal-edit #nama_traines").val(nama_traines);
+            $("#modal-edit #sandi").val(sandi);
+
+            });
+        </script>
     </body>
 </html>

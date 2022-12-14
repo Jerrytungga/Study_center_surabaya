@@ -49,6 +49,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
                                 Semester & Reguler
                             </a>
+                            <a class="nav-link" href="akses.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
+                                Fitur Akses
+                            </a>
                           
                             
                         </div>
