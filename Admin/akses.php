@@ -49,48 +49,6 @@ if(isset($_POST['edit_status_R'])){
                                 </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Data Follow up <a href="followup.php">
-                                    <span class="badge bg-danger">           
-                                        <?php
-                                            $total_follow_up = mysqli_query($conn,"SELECT COUNT(id_follow_up) as total FROM `followup_kontakan`");
-                                            $jumlah_follow_up = mysqli_fetch_array($total_follow_up);
-                                            echo $jumlah_follow_up['total'];
-                                        ?></span></a>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Data Registrasi SC <a href="study_center.php">
-                                    <span class="badge bg-danger">           
-                                        <?php
-                                            $total_sc = mysqli_query($conn,"SELECT COUNT(Nama_Lengkap) as total FROM `sc`");
-                                            $jumlah_sc = mysqli_fetch_array($total_sc);
-                                            echo $jumlah_sc['total'];
-                                        ?></span> </a>
-
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Total Traines <a href="traines.php">
-                                    <span class="badge bg-danger">           
-                                        <?php
-                                            $total_traines = mysqli_query($conn,"SELECT COUNT(id_traines) as total FROM `traines`");
-                                            $jumlah_tr = mysqli_fetch_array($total_traines);
-                                            echo $jumlah_tr['total'];
-                                        ?></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                       
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">

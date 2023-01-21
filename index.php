@@ -25,170 +25,453 @@ if (isset($_POST['masuk'])) {
 
 };
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Login - Study Center SBY</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <style>
-         
+<head>
+
+     <title>STUDY CENTER SURABAYA</title>
+<!-- 
+Hydro Template 
+http://www.templatemo.com/tm-509-hydro
+-->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/magnific-popup.css">
+     <link rel="stylesheet" href="css/font-awesome.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="css/templatemo-style.css">
+</head>
+<body>
+
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+          </div>
+     </section>
 
 
-p {
-  font-family: 'Lato', sans-serif;
-  letter-spacing: 1px;
-  font-size:14px;
-  color: #333333;
-}
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
 
-.header {
-  position:relative;
-  text-align:center;
-  background: linear-gradient(60deg, rgb(173, 231, 146) 0%, rgba(0,172,193,1) 100%);
-  color:white;
-}
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a href="index.html" class="navbar-brand">STUDY CENTER SURABAYA</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="#home" class="smoothScroll">BERANDA</a></li>
+                         <li><a href="#about" class="smoothScroll">TENTANG KAMI</a></li>
+                         <li><a href="#blog" class="smoothScroll">DAFTAR KELAS</a></li>
+                         <!-- <li><a href="#work" class="smoothScroll">KESAKSIAN</a></li> -->
+                         <!-- <li><a href="#contact" class="smoothScroll">KONTAK KAMI</a></li> -->
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                         <!-- <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                         <li><a href="#"><i class="fa fa-instagram"></i></a></li> -->
+                         <li class="section-btn"><a href="#" data-toggle="modal" data-target="#modal-form">MASUK</a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </section>
 
 
-.inner-header {
-  height:65vh;
-  width:100%;
-  margin: 0;
-  padding: 0;
-}
+     <!-- HOME -->
+     <section id="home" data-stellar-background-ratio="0.5">
+          <div class="overlay"></div>
+          <div class="container">
+               <div class="row">
 
-.flex { /*Flexbox for containers*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+                    <div class="col-md-6 col-sm-12">
+                         <div class="home-info">
+                              <h1>Komunitas Belajar dan Rumah Kedua Remaja 
+Sehat, Positif dan Berprestasi</h1>
+                              <a href="#" class="btn section-btn smoothScroll">DAFTAR SEKARANG</a>
+                              <!-- <span>
+                                   CALL US (+66) 010-020-0340
+                                   <small>For any inquiry</small>
+                              </span> -->
+                         </div>
+                    </div>
 
-.waves {
-  position:relative;
-  width: 100%;
-  height:15vh;
-  margin-bottom:-7px; /*Fix for safari gap*/
-  min-height:100px;
-  max-height:150px;
-}
+                    <div class="col-md-6 col-sm-12">
+                         <div class="home-video">
+                              <div class="embed-responsive embed-responsive-16by9">
+                                   <iframe src="https://www.youtube.com/embed/fAF2GthxDXk" frameborder="0" allowfullscreen></iframe>
+                              </div>
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </section>
 
-.content {
-  position:relative;
-  height:20vh;
-  text-align:center;
-  background-color: white;
-}
 
-/* Animation */
+     <!-- ABOUT -->
+     <section id="about" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
 
-.parallax > use {
-  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
-}
-.parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
-}
-.parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
-}
-.parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
-}
-.parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
-}
-@keyframes move-forever {
-  0% {
-   transform: translate3d(-90px,0,0);
-  }
-  100% { 
-    transform: translate3d(85px,0,0);
-  }
-}
-/*Shrinking for mobile*/
-@media (max-width: 768px) {
-  .waves {
-    height:40px;
-    min-height:40px;
-  }
-  .content {
-    height:30vh;
-  }
-  h1 {
-    font-size:24px;
-  }
-}
-        </style>
-       
-    </head>
-    
-    <body>
-        <!--Hey! This is the original version
-of Simple CSS Waves-->
+                    <div class="col-md-5 col-sm-6">
+                         <div class="about-info">
+                              <div class="section-title">
+                                   <h2>STUDY CENTER</h2>
+                                   <span class="line-bar">...</span>
+                              </div>
+                              <p>Study center adalah sebuah wadah non profit yang berada dibawah naungan Yayasan Bejana Mulia, yang bertujuan untuk membantu, membina, dan mendidik, generasi muda dalam aspek pendidikan, karakter, dan ketaatan kepada Tuhan. </p>
+                              <p>Sehingga masa muda mereka diisi dengan hal-hal positif dan mereka memiliki kesempatan yang sama dengan orang lain untuk meraih kesuksesan dan menjadi berkat bagi banyak orang.</p>
+                         </div>
+                    </div>
 
-<div class="header">
+                    <div class="col-md-3 col-sm-6">
+                         <div class="about-info">
+                              <div class="section-title">
+                                   <h2>VISI</h2>
+                              </div>
+                              <p>Menjadikan Study Center sebagai rumah kedua dimana setiap remaja bisa mendapatkan sebuah komunitas yang sehat di luar rumah. </p>
+                         </div>
+                    </div>
+                    
+                    <div class="col-md-4 col-sm-12">
+                         <div class="about-info">
+                              <div class="section-title">
+                                   <h2>MISI</h2>
+                              </div>
+                              <p>Membentuk sebuah komunitas remaja yang sehat, positif, dan prestasi <br> (berkaitan dengan pendidikan, karakter, dan ketaatan kepada Tuhan). </p>
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </section>
+     <P><P></P></P><P></P>
+ 
 
-<!--Content before waves-->
-<div class="inner-header flex">
-<div class="card" style="width: 25rem;">
-  <div class="card-body text-black">
-    
-  <form action="" method="POST">
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" type="text" name="username"  />
-                                    <label for="inputEmail">Username</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="inputPassword" name="password" type="password" />
-                                    <label for="inputPassword">Password</label>
-                                </div>
-                                
-                                <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                    
-                                    <Button type="submit" name="masuk" class="btn btn-success" >Login</Button>
-                                </div>
-                            </form>
-  </div>
-</div>
-</div>
+     <!-- BLOG -->
+     <section id="blog" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
 
-<!--Waves Container-->
-<div>
-<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-<defs>
-<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-</defs>
-<g class="parallax">
-<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-<use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-</g>
-</svg>
-</div>
-<!--Waves end-->
+                    <div class="col-md-12 col-sm-12">
+                         <div class="section-title">
+                              <h2>DAFTAR KELAS</h2>
+                              <span class="line-bar">...</span>
+                         </div>
+                    </div>
 
-</div>
-<!--Header ends-->
+                    <div class="col-md-6 col-sm-6">
+                         <!-- BLOG THUMB -->
+                         <div class="media blog-thumb">
+                              <!-- <div class="media-object media-left">
+                                   <a href="blog-detail.html"><img src="images/blog-image1.jpg" class="img-responsive" alt=""></a>
+                              </div> -->
+                              <div class="media-body blog-info">
+                                   <small>Kelas ini dibuka untu semua jenjang SD, SMP dan SMA.</small>
+                                   <h3>Kelas Reguler</h3>
+                                   <p>Kelas reguler ini berisi materi pembelajaran untuk mata pelajaran umum seperti matematika, fisika, kimia dan biologi.</p>
+                                   <!-- <a href="blog-detail.html" class="btn section-btn">Read article</a> -->
+                              </div>
+                         </div>
+                    </div>
 
-<!--Content starts-->
-<div class="content flex">
-  <p>By.Jerri Christian | Team Study Center </p>
-</div>
-<!--Content ends-->
-       
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+                    <div class="col-md-6 col-sm-6">
+                         <!-- BLOG THUMB -->
+                         <div class="media blog-thumb">
+                              <!-- <div class="media-object media-left">
+                                   <a href="blog-detail.html"><img src="images/blog-image2.jpg" class="img-responsive" alt=""></a>
+                              </div> -->
+                              <div class="media-body blog-info">
+                                   <small> Dibuka untuk kelas 3 SMP dan 3 SMA.</small>
+                                   <h3>Kelas Intensif</h3>
+                                   <p>Kelas intensif ini adalah kelas yang berisi materi dan pembelajaran khusus untuk persiapan ujian nasional.</p>
+                                   <!-- <a href="blog-detail.html" class="btn section-btn">Read more</a> -->
+                              </div>
+                         </div>
+                    </div>
+
+                    <!-- <div class="col-md-6 col-sm-6">
+                     
+                         <div class="media blog-thumb">
+                            
+                              <div class="media-body blog-info">
+                             
+                                   <h3>Ekstrakurikuler</h3>
+                                   <p>Ektrakurikuler Study Center menyediakan berbagai akifitas seperti kelas musik, olahraga dan keterampilan. Pengembangan bakat dan hobi, diantaranya : basket, futsal, badminton, keyboard, gitar, memasak, bahasa Inggris, bahasa Mandarin, dan komputer.</p>
+                                  
+                              </div>
+                         </div>
+                    </div> -->
+
+                    
+               </div>
+          </div>
+     </section>
+
+
+     <!-- WORK -->
+     <!-- <section id="work" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                         <div class="section-title">
+                              <h2>KESAKSIAN</h2>
+                              <span class="line-bar">...</span>
+                         </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                   
+                         <div class="media blog-thumb">
+                              <div class="media-object media-left">
+                                   <a href="blog-detail.html"><img src="images/blog-image4.jpg" class="img-responsive" alt=""></a>
+                              </div>
+                              <div class="media-body blog-info">
+                                   <small><i class="fa fa-clock-o"></i> December 10, 2017</small>
+                                   <h3><a href="blog-detail.html">minimalist design trend in 2018.</a></h3>
+                                   <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                                   <a href="blog-detail.html" class="btn section-btn">View Detail</a>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                   
+                         <div class="media blog-thumb">
+                              <div class="media-object media-left">
+                                   <a href="blog-detail.html"><img src="images/blog-image4.jpg" class="img-responsive" alt=""></a>
+                              </div>
+                              <div class="media-body blog-info">
+                                   <small><i class="fa fa-clock-o"></i> December 10, 2017</small>
+                                   <h3><a href="blog-detail.html">minimalist design trend in 2018.</a></h3>
+                                   <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                                   <a href="blog-detail.html" class="btn section-btn">View Detail</a>
+                              </div>
+                         </div>
+                    </div>
+
+                  
+
+               </div>
+          </div>
+     </section> -->
+
+     <!-- CONTACT -->
+     <!-- <section id="contact" data-stellar-background-ratio="0.5"> -->
+          <!-- <div class="container"> -->
+               <!-- <div class="row"> -->
+
+                    <!-- <div class="col-md-12 col-sm-12">
+                         <div class="section-title">
+                              <h2>Contact us</h2>
+                              <span class="line-bar">...</span>
+                         </div>
+                    </div> -->
+
+                    <!-- <div class="col-md-8 col-sm-8"> -->
+                        
+                         <!-- CONTACT FORM HERE -->
+                         <!-- <form id="contact-form" role="form" action="#" method="post">
+                              <div class="col-md-6 col-sm-6">
+                                   <input type="text" class="form-control" placeholder="Full Name" id="cf-name" name="cf-name" required="">
+                              </div>
+
+                              <div class="col-md-6 col-sm-6">
+                                   <input type="email" class="form-control" placeholder="Your Email" id="cf-email" name="cf-email" required="">
+                              </div>
+
+                              <div class="col-md-6 col-sm-6">
+                                   <input type="tel" class="form-control" placeholder="Your Phone" id="cf-number" name="cf-number" required="">
+                              </div>
+
+                              <div class="col-md-6 col-sm-6">
+                                   <select class="form-control" id="cf-budgets" name="cf-budgets">
+                                        <option>Budget Level</option>
+                                        <option>$500 to $1,000</option>
+                                        <option>$1,000 to $2,200</option>
+                                        <option>$2,200 to $4,500</option>
+                                        <option>$4,500 to $7,500</option>
+                                        <option>$7,500 to $12,000</option>
+                                        <option>$12,000 or more</option>
+                                   </select>
+                              </div>
+
+                              <div class="col-md-12 col-sm-12">
+                                   <textarea class="form-control" rows="6" placeholder="Your requirements" id="cf-message" name="cf-message" required=""></textarea>
+                              </div>
+
+                              <div class="col-md-4 col-sm-12">
+                                   <input type="submit" class="form-control" name="submit" value="Send Message">
+                              </div>
+
+                         </form> -->
+                    <!-- </div> -->
+
+                    <!-- <div class="col-md-4 col-sm-4"> -->
+                         <!-- <div class="google-map"> -->
+	<!-- How to change your own map point
+            1. Go to Google Maps
+            2. Click on your location point
+            3. Click "Share" and choose "Embed map" tab
+            4. Copy only URL and paste it within the src="" field below
+	-->
+                              <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945" allowfullscreen></iframe> -->
+                         <!-- </div> -->
+                    </div>
+
+               </div>
+          </div>
+     </section>
+
+
+     <!-- FOOTER -->
+     <footer data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-5 col-sm-12">
+                         <div class="footer-thumb footer-info"> 
+                              <h2>STUDY CENTER SURABAYA</h2>
+                              <p>SEBAGAI RUMAH KEDUA KOMUNITAS REMAJA SEHAT, POSITIF DAN BERPRESTASI</p>
+                         </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4"> 
+                         <div class="footer-thumb"> 
+                              <!-- <h2>Company</h2>
+                              <ul class="footer-link">
+                                   <li><a href="#">About Us</a></li>
+                                   <li><a href="#">Join our team</a></li>
+                                   <li><a href="#">Read Blog</a></li>
+                                   <li><a href="#">Press</a></li>
+                              </ul> -->
+                         </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4"> 
+                         <div class="footer-thumb"> 
+                              <!-- <h2>Services</h2>
+                              <ul class="footer-link">
+                                   <li><a href="#">Pricing</a></li>
+                                   <li><a href="#">Documentation</a></li>
+                                   <li><a href="#">Support</a></li>
+                              </ul> -->
+                         </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-4"> 
+                         <div class="footer-thumb"> 
+                              <h2>LOKASI KAMI</h2>
+                              <p>Gereja Sidang Jemaat Kristus, Jalan Raya Darmo Permai Selatan No.35, Pradahkali Kendal, Dukuh Pakis, KOTA SURABAYA, DUKUH PAKIS, JAWA TIMUR, ID, 60225</p>
+                         </div>
+                    </div>                    
+
+                    <!-- <div class="col-md-12 col-sm-12">
+                         <div class="footer-bottom">
+                              <div class="col-md-6 col-sm-5">
+                                   <div class="copyright-text"> 
+                                        <p>Copyright &copy; 2017 Your Company</p>
+                                   </div>
+                              </div>
+                              <div class="col-md-6 col-sm-7">
+                                   <div class="phone-contact"> 
+                                        <p>Call us <span>(+66) 010-020-0340</span></p>
+                                   </div>
+                                   <ul class="social-icon">
+                                        <li><a href="https://www.facebook.com/templatemo" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                                        <li><a href="#" class="fa fa-twitter"></a></li>
+                                        <li><a href="#" class="fa fa-instagram"></a></li>
+                                   </ul>
+                              </div>
+                         </div>
+                    </div> -->
+                    
+               </div>
+          </div>
+     </footer>
+
+
+     <!-- MODAL -->
+     <section class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+               <div class="modal-content modal-popup">
+
+                    <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                         </button>
+                    </div>
+
+                    <div class="modal-body">
+                         <div class="container-fluid">
+                              <div class="row">
+
+                                   <div class="col-md-12 col-sm-12">
+                                        <div class="modal-title">
+                                             <h2>STUDY CENTER SURABAYA</h2>
+                                        </div>
+
+                                        <!-- NAV TABS -->
+                                        <ul class="nav nav-tabs" role="tablist">
+                                             <!-- <li class="active"><a href="#sign_up" aria-controls="sign_up" role="tab" data-toggle="tab">Create an account</a></li> -->
+                                             <li class="active"><a href="#sign_in"  aria-controls="sign_in" role="tab" data-toggle="tab">Masuk</a></li>
+                                        </ul>
+
+                                        <!-- TAB PANES -->
+                                        <div class="tab-content">
+                                             <!-- <div role="tabpanel" class="tab-pane fade in active" id="sign_up">
+                                                  <form action="#" method="post">
+                                                       <input type="text" class="form-control" name="name" placeholder="Name" required>
+                                                       <input type="telephone" class="form-control" name="telephone" placeholder="Telephone" required>
+                                                       <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                                       <input type="password" class="form-control" name="password" placeholder="Password" required>
+                                                       <input type="submit" class="form-control" name="submit" value="Submit Button">
+                                                  </form>
+                                             </div> -->
+
+                                             <div role="tabpanel" class="tab-pane fade in active" id="sign_in">
+                                                  <form action="" method="post">
+                                                       <input type="text" class="form-control" name="username" placeholder="Email" required>
+                                                       <input type="password" class="form-control" name="password" placeholder="Password" required>
+                                                       <input type="submit" class="form-control" name="masuk" value="Masuk">
+                                                       <!-- <a href="https://www.facebook.com/templatemo">Forgot your password?</a> -->
+                                                  </form>
+                                             </div>
+                                        </div>
+                                   </div>
+
+                              </div>
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </section>
+
+     <!-- SCRIPTS -->
+     <script src="js/jquery.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="js/jquery.stellar.min.js"></script>
+     <script src="js/jquery.magnific-popup.min.js"></script>
+     <script src="js/smoothscroll.js"></script>
+     <script src="js/custom.js"></script>
+
+</body>
 </html>

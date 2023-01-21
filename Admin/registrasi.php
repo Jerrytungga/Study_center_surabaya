@@ -175,6 +175,19 @@ include 'session.php';
        </select>
         </div>
       </div>
+      <div class="p-3 mt-2 border bg-light">
+      <div>
+        <label for="">Jurusan :</label>
+       <select name="" id="">
+        <option value="IPA">IPA</option>
+        <option value="IPS">IPS</option>
+        <option value="TKJ">TKJ</option>
+        <option value="TSM">TSM</option>
+        <option value="TKR">TKR</option>
+
+       </select>
+        </div>
+      </div>
 
 
 
