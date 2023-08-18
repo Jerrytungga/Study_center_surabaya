@@ -105,7 +105,7 @@ http://www.templatemo.com/tm-509-hydro
                          <div class="home-info">
                               <h1>Komunitas Belajar dan Rumah Kedua Remaja 
 Sehat, Positif dan Berprestasi</h1>
-                              <a href="#" class="btn section-btn smoothScroll">DAFTAR SEKARANG</a>
+                              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeoL7IT7060IMGdJWgJw6PHWNTPqwaDKQ5OwTFZZ85v_F7D_w/viewform" class="btn section-btn smoothScroll">DAFTAR SEKARANG</a>
                               <!-- <span>
                                    CALL US (+66) 010-020-0340
                                    <small>For any inquiry</small>
@@ -188,6 +188,7 @@ Sehat, Positif dan Berprestasi</h1>
                                    <small>Kelas ini dibuka untu semua jenjang SD, SMP dan SMA.</small>
                                    <h3>Kelas Reguler</h3>
                                    <p>Kelas reguler ini berisi materi pembelajaran untuk mata pelajaran umum seperti matematika, fisika, kimia dan biologi.</p>
+                                   <!-- <h3>Kelas Reguler</h3> -->
                                    <!-- <a href="blog-detail.html" class="btn section-btn">Read article</a> -->
                               </div>
                          </div>
@@ -379,7 +380,7 @@ Sehat, Positif dan Berprestasi</h1>
                     <div class="col-md-3 col-sm-4"> 
                          <div class="footer-thumb"> 
                               <h2>LOKASI KAMI</h2>
-                              <p>Gereja Sidang Jemaat Kristus, Jalan Raya Darmo Permai Selatan No.35, Pradahkali Kendal, Dukuh Pakis, KOTA SURABAYA, DUKUH PAKIS, JAWA TIMUR, ID, 60225</p>
+                              <p>Darmo Permai Selatan No.35, Pradahkali Kendal, Dukuh Pakis, KOTA SURABAYA, DUKUH PAKIS, JAWA TIMUR, ID, 60225</p>
                          </div>
                     </div>                    
 
